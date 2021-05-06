@@ -18,7 +18,6 @@ def one(items):
 
     return result
 
-
 # <QUESTION 2>
 
 # Given two numbers, a & b, and an operator, evaluate the operation between a & b
@@ -99,4 +98,3 @@ def five(string):
         
         result += char
     return result
-    
