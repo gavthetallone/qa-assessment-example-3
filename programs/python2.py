@@ -68,7 +68,7 @@ def three(num):
 def four(a, b):
 
     for x in range(min(a,b), 0, -1):
-        if a % x == 0 and b % x == 0: return x
+        if not (a % x or b % x): return x
     
     else: return 1
 
