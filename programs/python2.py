@@ -99,5 +99,4 @@ def five(string):
         
         result += char
     return result
-
-print(five('hello world'))
+    
