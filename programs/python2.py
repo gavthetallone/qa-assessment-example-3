@@ -11,7 +11,13 @@
 # one(['tic', 'tac', 'toe']) → {'tic':1, 'tac':1, 'toe':1}
     
 def one(items):
-    pass
+
+    result = {}
+    for item in set(items):
+        result[item] = items.count(item)
+
+    return result
+
 
 # <QUESTION 2>
 
@@ -28,7 +34,7 @@ def one(items):
 # two(-5, 2, '/') → -2.5
 
 def two(a, b, operator):
-    pass
+    return eval(f'{a} {operator} {b}')
 
 # <QUESTION 3>
 
@@ -48,7 +54,7 @@ def two(a, b, operator):
 # We can use `x ** 0.5` to get the square root of `x`
 
 def three(num):
-    pass
+    return int(num ** 0.5) ** 2
 
 # <QUESTION 4>
 
@@ -61,7 +67,11 @@ def three(num):
 # four(10, 50) → 10
 
 def four(a, b):
-    pass
+
+    for x in range(min(a,b), 0, -1):
+        if a % x == 0 and b % x == 0: return x
+    
+    else: return 1
 
 # <QUESTION 5>
 
@@ -70,14 +80,24 @@ def four(a, b):
 
 # For a or A, use z or Z respectively
 
-# Ignore punctuation or whitespace
+# Ignore characters that aren't in the alphabet, such as whitespace or numbers
 
 # <EXAMPLES>
 
 # five('wxyz') → 'vwxy'
 # five('abc') → 'zab'
 # five('aAbB') → 'zZaA'
-# five('hello world') == ''
+# five('hello world') → 'gdkkn vnqkc'
+# five('54321') → '54321'
 
 def five(string):
-    pass
+
+    result = ''
+    for char in string:
+        if char.isalpha():
+            char = {'a':'z', 'A':'Z'}.get(char, chr( ord(char)-1 ))
+        
+        result += char
+    return result
+
+print(five('hello world'))
