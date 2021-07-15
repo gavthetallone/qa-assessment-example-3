@@ -10,8 +10,10 @@
 # one(['apple', 'banana', 'orange', 'orange', 'apple', 'apple']) → {'apple':3, 'orange':2, 'banana':1}
 # one(['tic', 'tac', 'toe']) → {'tic':1, 'tac':1, 'toe':1}
     
+import collections
+
 def one(items):
-    pass
+    return collections.Counter(items)
 
 # <QUESTION 2>
 
@@ -28,7 +30,15 @@ def one(items):
 # two(-5, 2, '/') → -2.5
 
 def two(a, b, operator):
-    pass
+
+    if operator == '+':
+        return a + b
+    elif operator == '-':
+        return a - b
+    elif operator == '*':
+        return a * b
+    elif operator == '/':
+        return a / b
 
 # <QUESTION 3>
 
@@ -48,7 +58,14 @@ def two(a, b, operator):
 # We can use `x ** 0.5` to get the square root of `x`
 
 def three(num):
-    pass
+    sqr_root = num **0.5
+    if sqr_root == int(sqr_root):
+        return num
+    else:
+        while sqr_root != int(sqr_root):
+            num-=1
+            sqr_root = num **0.5
+    return num
 
 # <QUESTION 4>
 
@@ -60,8 +77,10 @@ def three(num):
 # four(18, 11) → 1
 # four(10, 50) → 10
 
+import math
+
 def four(a, b):
-    pass
+    return math.gcd(a, b)
 
 # <QUESTION 5>
 
@@ -81,4 +100,19 @@ def four(a, b):
 # five('54321') → '54321'
 
 def five(string):
-    pass
+    if str.isdigit(string) == True:
+        return string
+    else:
+
+        result=""
+        for i in range(0, len(string)):
+            if string[i] == 'a':
+                result += 'z'
+            elif string[i] == 'A':
+                result += 'Z'
+            elif string[i] == " ":
+                result += " "
+            else:
+                temp = ord(string[i]) - 1
+                result += str(chr(temp))
+        return result
